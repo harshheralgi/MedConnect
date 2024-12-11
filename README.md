@@ -46,11 +46,3 @@ We aim to empower patients by providing the tools and resources they need to tak
 Contributions to improve the platform are welcome! Please feel free to fork the repository, submit pull requests, or report issues.
 
 ---
-
-## License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## Contact
-For inquiries or support, contact us at **support@prescriptionhealthcare.com**.
