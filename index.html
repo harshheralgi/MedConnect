@@ -1,68 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <div class="container">
-        <h1>Book Your Appointment</h1>
-        
-        <form id="appointmentForm" action="book_appointment.php" method="POST">
-            <label for="name">Patient's Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-            <label for="age">Patient's Age:</label>
-            <input type="number" id="age" name="age" placeholder="Enter your age" required>
-
-            <label for="date">Choose Date:</label>
-            <select id="date" name="date" required>
-               <!-- Dates will be inserted here by JS -->
-            </select>
-
-            <label for="time">Choose Time:</label>
-            <select id="time" name="time" required>
-               <!-- Time slots will be inserted here by JS -->
-            </select>
-
-            <button type="submit">Book Appointment</button>
-        </form>
-    </div>
-
-    <script>
-        const dateSelect = document.getElementById('date');
-        const timeSelect = document.getElementById('time');
-        const today = new Date();
-
-        // Populate next 7 days in date dropdown
-        for (let i = 0; i < 7; i++) {
-            const option = document.createElement('option');
-            const nextDate = new Date(today);
-            nextDate.setDate(today.getDate() + i);
-            option.value = nextDate.toISOString().split('T')[0]; 
-            option.textContent = nextDate.toLocaleDateString();
-            dateSelect.appendChild(option);
-        }
-
-        // Populate time slots (10 AM to 3 PM in 30 min intervals)
-        const times = [];
-        for (let hour = 10; hour <= 15; hour++) {
-            for (let min = 0; min < 60; min += 30) {
-                const time = new Date(2024, 0, 1, hour, min);
-                const timeString = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                times.push(timeString);
-            }
-        }
-
-        times.forEach(time => {
-            const option = document.createElement('option');
-            option.value = time;
-            option.textContent = time;
-            timeSelect.appendChild(option);
-        });
-    </script>
-</body>
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedConnect</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
